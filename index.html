@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>GeOpinion</title>
+  <meta name="description" content="">
+  <meta name="author" content="Sabarish Sainathan, Marti Vives, Harshvardhan Babla">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="SendQuery.js"></script>
+</head>
+
+<body>
+  <header class="SearchSection">
+    <h1 class="CompanyName">GeOpinion</h1>
+    <form onsubmit="SubmitSearchForm(); return false" class="SearchForm">
+      <p>
+        <input id="topic" type="text" placeholder="Topic" required="" class="text">
+      </p>
+      <p>
+        <div class="LocationInputs">
+          <input id="location" type="text" placeholder="Location" required="" class="text">
+          <input id="radius" type="number" placeholder="Radius" required="" class="text" min="35">
+        </div>
+      </p>
+      <p class="btn">
+        <input id="SubmitButton" type="submit" value="GO" class="submit">
+      </p>
+    </form>
+  </header>
+  <section id="TwitterResults">
+    <h1 id="TwitterSentimentsTitle">Sentiment&nbsp;&nbsp;&nbsp;&nbsp;Analysis&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;&nbsp;&nbsp;&nbsp;Tweets&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+      <div id="PieChartContainer">
+        <script type="text/javascript" src="https://static.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+        <script type="text/javascript" src="https://static.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+      </div>
+  </section>
+  <section id="Trends">
+    <h2 id="TrendsTitle">Sentiments&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;&nbsp;&nbsp;&nbsp;Trends&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;&nbsp;city</h2>
+    <div id="BarChartWrapper">
+      <div id="BarChartContainer">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="BarChart.js"></script>
+      </div>
+      <div id="LocSelect" class="selectfield">
+          <form class="LocForm" onsubmit="BarChart(); return false" class="SearchForm">
+            <p id="LocDescription">Select a city<br>from the list below</p>
+            <select id="Loc" placeholder="Location" required="" class="browser-default">
+              <option value="" disabled="" selected="">Issues</option>
+              <option value="0">New&nbsp;&nbsp;&nbsp;&nbsp;York</option>
+              <option value="1">Los&nbsp;&nbsp;&nbsp;&nbsp;Angeles</option>
+              <option value="2">Chicago</option>
+              <option value="3">Houston</option>
+              <option value="4">Philadelphia</option>
+              <option value="5">Phoenix</option>
+              <option value="6">San&nbsp;&nbsp;&nbsp;&nbsp;Antonio</option>
+              <option value="7">San&nbsp;&nbsp;&nbsp;&nbsp;Diego</option>
+              <option value="8">Dallas</option>
+              <option value="9">San&nbsp;&nbsp;&nbsp;&nbsp;Jose</option>
+            </select>
+            <input id="LocButton" type="submit" value="GO" class="submit">
+          </form>
+      </div>
+    </div>
+  </section>
+  <section id="VarianceByLocation">
+    <h2 id="VarianceTitle">Variation&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;&nbsp;&nbsp;&nbsp;Sentiments&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;&nbsp;&nbsp;&nbsp;Topics&nbsp;&nbsp;&nbsp;&nbsp;across&nbsp;&nbsp;&nbsp;&nbsp;Cities&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+    <div id="VarBarChartWrapper">
+      <div id="VarBarChartContainer">
+        <script type="text/javascript" src="VarBarChart.js"></script>
+      </div>
+      <div id="VarSelect" class="selectfield">
+        <form class="VarForm" onsubmit="VarBarChart(); return false" class="SearchForm">
+          <p id="VarDescription">Select a divisive issue<br>from the list below</p>
+          <select id="VarIssue" placeholder="Location" required="" class="browser-default">
+            <option value="" disabled="" selected="">Issues</option>
+            <option value="0">Abortion</option>
+            <option value="1">Gun&nbsp;&nbsp;&nbsp;&nbsp;Control</option>
+            <option value="2">North&nbsp;&nbsp;&nbsp;&nbsp;Korea</option>
+            <option value="3">Donald&nbsp;&nbsp;&nbsp;&nbsp;Trump</option>
+            <option value="4">Russia</option>
+          </select>
+          <input id="VarButton" type="submit" value="GO" class="submit">
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
